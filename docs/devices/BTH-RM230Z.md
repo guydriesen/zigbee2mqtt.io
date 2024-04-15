@@ -18,13 +18,13 @@ pageClass: device-page
 | Model | BTH-RM230Z  |
 | Vendor  | [Bosch](/supported-devices/#v=Bosch)  |
 | Description | Room thermostat II 230V |
-| Exposes | climate (local_temperature, occupied_heating_setpoint, local_temperature_calibration, system_mode, running_state), humidity, boost, window_open, lock (state), display_ontime, display_brightness, linkquality |
-| Picture | ![Bosch BTH-RM230Z](https://www.zigbee2mqtt.io/images/devices/BTH-RM230Z.jpg) |
+| Exposes | climate (local_temperature, occupied_heating_setpoint, local_temperature_calibration, system_mode, running_state), humidity, boost, window_detection, lock (state), display_ontime, display_brightness, linkquality |
+| Picture | ![Bosch BTH-RM230Z](https://www.zigbee2mqtt.io/images/devices/BTH-RM230Z.png) |
 
 
 <!-- Notes BEGIN: You can edit here. Add "## Notes" headline if not already present. -->
-
-
+## Pairing
+To pair this device you have to install the device via its installation code. The installation code can be obtained by scanning the QR-code on the back of the cover with your smartphone. Then get the device into pairing mode. In zigbee2mqtt navigate to "Settings" --> "Tools" and click on "Add install code". Paste the code you got from the QR-code and confirm by clicking "OK" which will get zigbee2mqtt into pairing mode automatically. Wait for your device to be joined.
 <!-- Notes END: Do not edit below this line -->
 
 
@@ -32,11 +32,11 @@ pageClass: device-page
 ## Options
 *[How to use device type specific configuration](../guide/configuration/devices-groups.md#specific-device-options)*
 
-* `thermostat_unit`: Controls the temperature unit of the thermostat (default celsius). The value must be one of `celsius`, `fahrenheit`
-
-* `humidity_precision`: Number of digits after decimal point for humidity, takes into effect on next report of device. The value must be a number with a minimum value of `0` and with a with a maximum value of `3`
-
 * `humidity_calibration`: Calibrates the humidity value (absolute offset), takes into effect on next report of device. The value must be a number.
+
+* `humidity_precision`: Number of digits after decimal point for humidity, takes into effect on next report of device. This option can only decrease the precision, not increase it. The value must be a number with a minimum value of `0` and with a with a maximum value of `3`
+
+* `thermostat_unit`: Controls the temperature unit of the thermostat (default celsius). The value must be one of `celsius`, `fahrenheit`
 
 
 ## Exposes
@@ -62,12 +62,12 @@ To read (`/get`) the value publish a message to topic `zigbee2mqtt/FRIENDLY_NAME
 To write (`/set`) a value publish a message to topic `zigbee2mqtt/FRIENDLY_NAME/set` with payload `{"boost": NEW_VALUE}`.
 If value equals `ON` boost is ON, if `OFF` OFF.
 
-### Window open (binary)
+### Window detection (binary)
 Window open.
-Value can be found in the published state on the `window_open` property.
-To read (`/get`) the value publish a message to topic `zigbee2mqtt/FRIENDLY_NAME/get` with payload `{"window_open": ""}`.
-To write (`/set`) a value publish a message to topic `zigbee2mqtt/FRIENDLY_NAME/set` with payload `{"window_open": NEW_VALUE}`.
-If value equals `ON` window open is ON, if `OFF` OFF.
+Value can be found in the published state on the `window_detection` property.
+To read (`/get`) the value publish a message to topic `zigbee2mqtt/FRIENDLY_NAME/get` with payload `{"window_detection": ""}`.
+To write (`/set`) a value publish a message to topic `zigbee2mqtt/FRIENDLY_NAME/set` with payload `{"window_detection": NEW_VALUE}`.
+If value equals `ON` window detection is ON, if `OFF` OFF.
 
 ### Child lock (lock)
 The current state of this lock is in the published state under the `child_lock` property (value is `LOCK` or `UNLOCK`).

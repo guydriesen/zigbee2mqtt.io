@@ -19,12 +19,18 @@ pageClass: device-page
 | Vendor  | [Lonsonho](/supported-devices/#v=Lonsonho)  |
 | Description | Curtain/blind motor controller |
 | Exposes | cover (state, position), moving, calibration, motor_reversal, calibration_time, linkquality |
-| Picture | ![Lonsonho QS-Zigbee-C03](https://www.zigbee2mqtt.io/images/devices/QS-Zigbee-C03.jpg) |
+| Picture | ![Lonsonho QS-Zigbee-C03](https://www.zigbee2mqtt.io/images/devices/QS-Zigbee-C03.png) |
 
 
 <!-- Notes BEGIN: You can edit here. Add "## Notes" headline if not already present. -->
+## Notes
 
-
+_How to use calibration_
+* Activate calibration mode
+* Open the shutter completely and press stop
+* Set the number to 100 and press the refresh button
+* Close the shutter completely and when it comes to an end, press STOP.
+* Set the position to 0, press the refresh button and deactivate the calibration.
 <!-- Notes END: Do not edit below this line -->
 
 
